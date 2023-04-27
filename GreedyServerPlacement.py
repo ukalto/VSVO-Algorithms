@@ -1,6 +1,6 @@
 # Each Array is one L column
 # Example: options = [[1, 10, 10], [10, 5, 3], [10, 6, 5]]
-options = [[]]
+options = [[]]  # Fill in
 first_server = list(min({i + 1: sum(x) for i, x in enumerate(options)}.items(), key=lambda x: x[1]))
 
 minimum = {}

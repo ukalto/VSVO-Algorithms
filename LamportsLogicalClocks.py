@@ -2,7 +2,7 @@ processors = int(input("Amount of processor: "))
 rows = int(input("Amount of rows: "))
 # message from[1-Processor], to[1-Processor], step from [1-rows]
 # Example: messages = [[1, 2, 2], [2, 3, 4], [3, 2, 7], [2, 1, 9]]
-messages = []
+messages = [[]]
 number_sequences = []
 vectors = {}
 for i in range(processors):
