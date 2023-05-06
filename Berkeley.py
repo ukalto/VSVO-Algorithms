@@ -1,6 +1,6 @@
 from datetime import timedelta
 
-# Input for 3:30 pm = 1530
+# Input-format example: for 3:30 pm = 1530
 server_a_time = input("Server A: ")
 server_b_time = input("Server B: ")
 server_c_time = input("Server C: ")
@@ -19,7 +19,7 @@ server_a = ["Server A", timedelta(hours=int(server_a_time[:len(server_a_time) //
 server_b = ["Server B", timedelta(hours=int(server_b_time[:len(server_b_time) // 2]), minutes=int(server_b_time[len(server_b_time) // 2:])).total_seconds()]
 server_c = ["Server C", timedelta(hours=int(server_c_time[:len(server_c_time) // 2]), minutes=int(server_c_time[len(server_c_time) // 2:])).total_seconds()]
 servers = [server_a, server_b, server_c]
-# rounds = 3 | Time Daemon = Server A
+# Scenario: rounds = 3 | Time Demon = Server A
 print("\nRound 1")
 print(f"Server A to {server_a[0]}: {convert_seconds(server_a[1])}")
 print(f"Server A to {server_b[0]}: {convert_seconds(server_a[1])}")
