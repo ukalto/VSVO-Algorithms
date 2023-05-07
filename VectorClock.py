@@ -1,10 +1,8 @@
-# change to your amount
-vector_clocks_amount = 3
-# change to your start vector values
-vectors = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
-# message = from to | event(increment) = x
+# Fill in your start vector values
+vectors = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]  # Fill in
+# message = from to , event(increment) = x
 # Example: task_list = [["13", "2"], ["32"], ["21", "3"], ["31"]]
-task_list = [[]]
+task_list = [[""]]  # Fill in
 print(f"t0 {vectors}")
 
 
