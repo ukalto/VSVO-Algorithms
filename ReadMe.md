@@ -15,9 +15,9 @@ Everything that has to be adapted in the code has a ````# Fill in```` in the sam
 7. [Read Write Quorums](#readWriteQuorums)
 8. [Vector Clock](#vectorClock)
 
-## [Berkeley](https://github.com/ukalto/VSVO-Algorithms/blob/master/Berkeley.py)
-
 <a name="berkeley"/>
+
+## [Berkeley](https://github.com/ukalto/VSVO-Algorithms/blob/master/Berkeley.py)
 
 The Berkeley algorithm is a method of clock synchronisation in distributed computing which assumes no machine has an accurate time source.
 
@@ -39,9 +39,9 @@ Every time has to be typed in the following format: 3:30pm = 1530 | 11:20am 1120
 
 <p align="right">(<a href="#readme-top">Back to Top</a>)</p>
 
-## [Chord System](https://github.com/ukalto/VSVO-Algorithms/blob/master/ChordSystem.py)
-
 <a name="chordSystem"/>
+
+## [Chord System](https://github.com/ukalto/VSVO-Algorithms/blob/master/ChordSystem.py)
 
 In computing, Chord is a protocol and algorithm for a peer-to-peer distributed hash table.
 A distributed hash table stores key-value pairs by assigning keys to different computers (known as "nodes");
@@ -66,9 +66,9 @@ Chord specifies how keys are assigned to nodes, and how a node can discover the 
 
 <p align="right">(<a href="#readme-top">Back to Top</a>)</p>
 
-## [Crypto System](https://github.com/ukalto/VSVO-Algorithms/blob/master/CryptoSystem.py)
-
 <a name="cryptoSystem"/>
+
+## [Crypto System](https://github.com/ukalto/VSVO-Algorithms/blob/master/CryptoSystem.py)
 
 This Crypto System is just to send and receive messages from A(Sender) to B(Receiver), which consists of 3 factors:
 <ol>
@@ -99,9 +99,9 @@ This Crypto System is just to send and receive messages from A(Sender) to B(Rece
 
 <p align="right">(<a href="#readme-top">Back to Top</a>)</p>
 
-## [Diffie Hellman](https://github.com/ukalto/VSVO-Algorithms/blob/master/DiffieHellman.py)
-
 <a name="diffieHellman"/>
+
+## [Diffie Hellman](https://github.com/ukalto/VSVO-Algorithms/blob/master/DiffieHellman.py)
 
 Diffie–Hellman key exchange is a mathematical method of securely exchanging cryptographic keys over a public channel and was one of the first public-key
 protocols as conceived.
@@ -120,13 +120,13 @@ protocols as conceived.
 
 ![Chord System](ReadMePictures/DiffieHellman.png)
 
-(Source: [Reasearch Gate](https://www.researchgate.net/figure/Diffie-Hellman-Key-exchange-protocol_fig5_350590914))
+(Source: [Research Gate](https://www.researchgate.net/figure/Diffie-Hellman-Key-exchange-protocol_fig5_350590914))
 
 <p align="right">(<a href="#readme-top">Back to Top</a>)</p>
 
-## [Greedy Server Placement](https://github.com/ukalto/VSVO-Algorithms/blob/master/GreedyServerPlacement.py)
-
 <a name="greedyServerPlacement"/>
+
+## [Greedy Server Placement](https://github.com/ukalto/VSVO-Algorithms/blob/master/GreedyServerPlacement.py)
 
 ### How to use?
 
@@ -139,13 +139,11 @@ protocols as conceived.
 
 ![Greedy Server Placement](ReadMePictures/GreedyServerPlacement.png)
 
-(Source: [Vowi](https://vowi.fsinf.at/images/3/36/TU_Wien-Verteilte_Systeme_VO_%28Dustdar%29_-_Pruefung_2022-06-14_ausarbeitung.pdf))
-
 <p align="right">(<a href="#readme-top">Back to Top</a>)</p>
 
-## [Lamport's Logical Clocks](https://github.com/ukalto/VSVO-Algorithms/blob/master/LamportsLogicalClocks.py)
-
 <a name="lamportsLogicalClocks"/>
+
+## [Lamport's Logical Clocks](https://github.com/ukalto/VSVO-Algorithms/blob/master/LamportsLogicalClocks.py)
 
 The Lamport timestamp algorithm is a simple logical clock algorithm used to determine the order of events in a distributed computer system.
 As different nodes or processes will typically not be perfectly synchronized, this algorithm is used to provide a partial ordering of events with minimal overhead,
@@ -176,9 +174,9 @@ and conceptually provide a starting point for the more advanced vector clock met
 
 <p align="right">(<a href="#readme-top">Back to Top</a>)</p>
 
-## [Read Write Quorums](https://github.com/ukalto/VSVO-Algorithms/blob/master/ReadWriteQuorums.py)
-
 <a name="readWriteQuorums"/>
+
+## [Read Write Quorums](https://github.com/ukalto/VSVO-Algorithms/blob/master/ReadWriteQuorums.py)
 
 Read-write quorums define two configurable parameters, R and W.
 R is the minimum number of nodes that must participate in a read operation, and W the minimum number of nodes that must participate in a write operation.
@@ -211,9 +209,10 @@ There are 2 main rules included in the system:
 
 <p align="right">(<a href="#readme-top">Back to Top</a>)</p>
 
-## [Vector Clock](https://github.com/ukalto/VSVO-Algorithms/blob/master/VectorClock.py)
 
 <a id="vectorClock"/>
+
+## [Vector Clock](https://github.com/ukalto/VSVO-Algorithms/blob/master/VectorClock.py)
 
 A vector clock is a data structure used for determining the partial ordering of events in a distributed system and detecting causality violations. 
 Just as in Lamport timestamps, inter-process messages contain the state of the sending process's logical clock.
@@ -221,7 +220,7 @@ Just as in Lamport timestamps, inter-process messages contain the state of the s
 ### How to use?
 
 <ol>
-    <li>Change the start values (<b>"vectors"</b> array), if they differ from yours</li>
+    <li>Change the start values (<b>"vectors"</b> array), if they differ from yours or add more array entries to the list if you have more than 3 vector clocks</li>
     <li>Fill in the <b>"task_list"</b> array</li>
     <ul>
         <li>Example for the given provided resource below: task_list = [["13", "2"], ["32"], ["21", "3"], ["31"]]</li>
@@ -235,7 +234,5 @@ Just as in Lamport timestamps, inter-process messages contain the state of the s
 ### Example:
 
 ![Vector Clock](ReadMePictures/VectorClock.png)
-
-(Source: [Vowi](https://vowi.fsinf.at/wiki/Datei:TU_Wien-Verteilte_Systeme_VO_(Dustdar)_-_Pruefung_2021-02-19.zip))
 
 <p align="right">(<a href="#readme-top">Back to Top</a>)</p>
