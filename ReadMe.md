@@ -1,5 +1,7 @@
 <a name="readme-top"></a>
 
+![GitHub Repo stars](https://img.shields.io/github/stars/ukalto/VSVO-Algorithms?style=social)
+
 # Algorithms for Distributed Systems
 
 Everything that has to be adapted in the code has a ````# Fill in```` in the same line
