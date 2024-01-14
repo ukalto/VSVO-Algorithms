@@ -17,7 +17,7 @@ entities_dict = {}
 
 while True:
     try:
-        node = int(input("Black dotted: "))
+        node = int(input("Black Dots: "))
         entities.append(node)
         entities_dict[node] = ""
     except ValueError:
