@@ -1,7 +1,9 @@
 import random
 
 N = int(input("N: "))
-read_important = True if int(input("1 = True : Other = False ")) == 1 else False
+try: read_important = int(input("1 = True : Other = False ")) == 1
+except ValueError: read_important = False
+
 if read_important:
     print(f"N_r = {1}\nN_w = {N}")
 else:
