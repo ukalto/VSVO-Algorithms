@@ -8,19 +8,19 @@ print(f"t0 {vectors}")
 
 def update_vectors(vector_from, vector_to):
     updated_vector = vector_to
-    for i, (f, t) in enumerate(zip(vector_from, vector_to)):
-        if f > t:
-            updated_vector[i] = f
+    for idx, (v_from, v_to) in enumerate(zip(vector_from, vector_to)):
+        if v_from > v_to:
+            updated_vector[idx] = v_from
     return updated_vector
 
 
 for i, tasks in enumerate(task_list):
     for task in tasks:
         if len(task) == 2:
-            f, t = int(task[0]) - 1, int(task[1]) - 1
-            vectors[f][f] += 1
-            vectors[t] = update_vectors(vectors[f], vectors[t])
-            vectors[t][t] += 1
+            v_from, v_to = int(task[0]) - 1, int(task[1]) - 1
+            vectors[v_from][v_from] += 1
+            vectors[v_to] = update_vectors(vectors[v_from], vectors[v_to])
+            vectors[v_to][v_to] += 1
         else:
             inc = int(task[0])
             vectors[inc - 1][inc - 1] += 1
