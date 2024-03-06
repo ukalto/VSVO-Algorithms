@@ -51,11 +51,13 @@ def calculate_matching_coordinates(guid1, guid2):
             break
     return matching_coords
 
+
 def get_first_node(node):
     current_node = node
     while current_node.parent:
         current_node = current_node.parent
     return current_node
+
 
 def find_node_by_prefix(graph, prefix):
     for node in graph:
@@ -66,9 +68,9 @@ def find_node_by_prefix(graph, prefix):
             return current_node
     return None
 
+
 def find_path_in_polyring(start_node, end_node):
     path = [start_node.identifier]
-    child_count = 0
     sibling_count = 0
 
     while start_node.identifier != end_node.identifier:
@@ -83,7 +85,6 @@ def find_path_in_polyring(start_node, end_node):
             # Not same parent. Route to parent.
             start_node = start_node.parent
             path.append(start_node.identifier)
-            child_count = 0
             sibling_count = 0
 
         elif matching_coords == length_of_routing - 1:
@@ -91,7 +92,6 @@ def find_path_in_polyring(start_node, end_node):
                 # Destination is parent. Route to parent.
                 start_node = start_node.parent
                 path.append(start_node.identifier)
-                child_count = 0
                 sibling_count = 0
             elif length_of_destination >= length_of_routing:
                 # Destination is sibling or sibling descendant. Route to sibling.
@@ -101,20 +101,18 @@ def find_path_in_polyring(start_node, end_node):
                 else:
                     start_node = start_node.children[sibling_count]
                     sibling_count += 1
-                path.append(start_node.identifier)
-                child_count = 0
-
+                if not start_node.identifier in path:
+                    path.append(start_node.identifier)
         elif matching_coords == length_of_routing:
             if length_of_routing == length_of_destination:
                 # Destination is self. Process message.
                 path.append(start_node.identifier)
-                child_count = 0
                 sibling_count = 0
             elif length_of_routing < length_of_destination:
                 # Destination is descendant. Route to child.
-                start_node = start_node.children[child_count]
-                child_count += 1
                 sibling_count = 0
+                start_node = start_node.children[sibling_count]
+                path.append(start_node.identifier)
 
     return path
 
