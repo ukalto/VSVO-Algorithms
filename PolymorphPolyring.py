@@ -104,16 +104,11 @@ def find_path_in_polyring(start_node, end_node):
                 if not start_node.identifier in path:
                     path.append(start_node.identifier)
         elif matching_coords == length_of_routing:
-            if length_of_routing == length_of_destination:
-                # Destination is self. Process message.
-                path.append(start_node.identifier)
-                sibling_count = 0
-            elif length_of_routing < length_of_destination:
+            sibling_count = 0
+            if length_of_routing < length_of_destination:
                 # Destination is descendant. Route to child.
-                sibling_count = 0
                 start_node = start_node.children[sibling_count]
-                path.append(start_node.identifier)
-
+            path.append(start_node.identifier)
     return path
 
 
