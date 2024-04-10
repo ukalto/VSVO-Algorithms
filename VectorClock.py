@@ -2,7 +2,7 @@
 vectors = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]  # Fill in
 # message = from to , event(increment) = x
 # Example: task_list = [["13", "2"], ["32"], ["21", "3"], ["31"]]
-task_list = [[""]]  # Fill in
+task_list = [[]]  # Fill in
 print(f"t0 {vectors}")
 
 

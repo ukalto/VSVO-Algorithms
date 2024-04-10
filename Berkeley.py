@@ -1,9 +1,29 @@
 from datetime import timedelta
 
-# Input-format example: for 3:30 pm = 1530
-server_a_time = input("Server A: ")
-server_b_time = input("Server B: ")
-server_c_time = input("Server C: ")
+
+class Server:
+    def __init__(self, name, time):
+        self.name = name
+        self.time = timedelta(hours=int(time[:len(time) // 2]), minutes=int(time[len(time) // 2:])).total_seconds()
+        self.time_daemon = False
+
+
+def start_app():
+    servers = []
+    letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+    # Input-format example: for 3:30 pm = 1530
+    for i in range(int(input("How many servers? "))):
+        s = input(f"Server {letters[i]}: ")
+        servers.append(Server(f"Server {letters[i]}", s))
+    while True:
+        print(f"\nWhich server is the time daemon? Range: 0-{len(servers) - 1}")
+        time_daemon = int(input("Time Daemon: "))
+        if time_daemon < 0 or time_daemon > len(servers):
+            print("Invalid input")
+        else:
+            servers[time_daemon].time_daemon = True
+            break
+    return servers, servers[time_daemon]
 
 
 def convert_seconds(time):
@@ -12,32 +32,38 @@ def convert_seconds(time):
     sign = " "
     if time < 0:
         sign = "-"
-    return f"{sign}{int(h)}:{int(m)}:{int(s)}"
+    return f"{sign}{int(h):02d}:{int(m):02d}:{int(s):02d}"
 
 
-server_a = ["Server A", timedelta(hours=int(server_a_time[:len(server_a_time) // 2]), minutes=int(server_a_time[len(server_a_time) // 2:])).total_seconds()]
-server_b = ["Server B", timedelta(hours=int(server_b_time[:len(server_b_time) // 2]), minutes=int(server_b_time[len(server_b_time) // 2:])).total_seconds()]
-server_c = ["Server C", timedelta(hours=int(server_c_time[:len(server_c_time) // 2]), minutes=int(server_c_time[len(server_c_time) // 2:])).total_seconds()]
-servers = [server_a, server_b, server_c]
-# Scenario: rounds = 3 | Time Demon = Server A
-print("\nRound 1")
-print(f"Server A to {server_a[0]}: {convert_seconds(server_a[1])}")
-print(f"Server A to {server_b[0]}: {convert_seconds(server_a[1])}")
-print(f"Server A to {server_c[0]}: {convert_seconds(server_a[1])}")
+def round_one(servers, time_daemon):
+    print("\nRound 1")
+    for s in servers:
+        print(f"{time_daemon.name} {s.name}: {convert_seconds(s.time)}")
 
-print("\nRound 2")
-diff_a = server_a[1] - server_a[1]
-diff_b = server_b[1] - server_a[1]
-diff_c = server_c[1] - server_a[1]
-print(f"{server_a[0]} to Server A: {convert_seconds(diff_a)}")
-print(f"{server_b[0]} to Server A: {convert_seconds(diff_b)}")
-print(f"{server_c[0]} to Server A: {convert_seconds(diff_c)}")
 
-print("\nRound 3")
-avg = (diff_a + diff_b + diff_c) / 3
-new_a = server_a[1] + avg
-diff_b = new_a - server_b[1]
-diff_c = new_a - server_c[1]
-print(f"Server A to {server_a[0]}: {convert_seconds(avg)}")
-print(f"Server A to {server_b[0]}: {convert_seconds(diff_b)}")
-print(f"Server A to {server_c[0]}: {convert_seconds(diff_c)}")
+def round_two(servers, time_daemon):
+    print("\nRound 2")
+    differences = []
+    for s in servers:
+        diff = s.time - time_daemon.time
+        print(f"{s.name} to {time_daemon.name}: {convert_seconds(diff)}")
+        differences.append(diff)
+    return differences
+
+
+def round_three(servers, time_differences, time_daemon):
+    print("\nRound 3")
+    avg = sum(time_differences) / len(time_differences)
+    for s in servers:
+        diff = time_daemon.time + avg - s.time
+        print(f"{time_daemon.name} to {s.name}: {convert_seconds(diff)} | Final Time: {convert_seconds(s.time + diff)}")
+
+
+if __name__ == '__main__':
+    network_servers, time_daemon = start_app()
+
+    round_one(network_servers, time_daemon)
+
+    time_differences = round_two(network_servers, time_daemon)
+
+    round_three(network_servers, time_differences, time_daemon)
