@@ -17,7 +17,7 @@ Everything that has to be adapted in the code has a ````# Fill in```` in the sam
 7. [Read Write Quorums](#readWriteQuorums)
 8. [Vector Clock](#vectorClock)
 
-<a name="berkeley"/>
+<a name="berkeley"></a>
 
 ## [Berkeley](https://github.com/ukalto/VSVO-Algorithms/blob/master/Berkeley.py)
 
@@ -28,9 +28,9 @@ Every time has to be typed in the following format: 3:30pm = 1530 | 11:20am 1120
 
 <ol>
     <li>Start the Berkeley.py program</li>
-    <li>First type in the time for the Time Daemon (server_a_time)</li>
-    <li>Secondly type in the time for the Server B (server_b_time)</li>
-    <li>Thirdly type in the time for the Server C (server_c_time)</li>
+    <li>First type in how many servers exist</li>
+    <li>Secondly type in the time for each server using the right time format explained above</li>
+    <li>Thirdly type in which server should be the time daemon</li>
 </ol>
 
 ### Example:
@@ -41,7 +41,7 @@ Every time has to be typed in the following format: 3:30pm = 1530 | 11:20am 1120
 
 <p align="right">(<a href="#readme-top">Back to Top</a>)</p>
 
-<a name="chordSystem"/>
+<a name="chordSystem"></a>
 
 ## [Chord System](https://github.com/ukalto/VSVO-Algorithms/blob/master/ChordSystem.py)
 
@@ -68,7 +68,7 @@ Chord specifies how keys are assigned to nodes, and how a node can discover the 
 
 <p align="right">(<a href="#readme-top">Back to Top</a>)</p>
 
-<a name="cryptoSystem"/>
+<a name="cryptoSystem"></a>
 
 ## [Crypto System](https://github.com/ukalto/VSVO-Algorithms/blob/master/CryptoSystem.py)
 
@@ -101,7 +101,7 @@ This Crypto System is just to send and receive messages from A(Sender) to B(Rece
 
 <p align="right">(<a href="#readme-top">Back to Top</a>)</p>
 
-<a name="diffieHellman"/>
+<a name="diffieHellman"></a>
 
 ## [Diffie Hellman](https://github.com/ukalto/VSVO-Algorithms/blob/master/DiffieHellman.py)
 
@@ -126,7 +126,7 @@ protocols as conceived.
 
 <p align="right">(<a href="#readme-top">Back to Top</a>)</p>
 
-<a name="greedyServerPlacement"/>
+<a name="greedyServerPlacement"></a>
 
 ## [Greedy Server Placement](https://github.com/ukalto/VSVO-Algorithms/blob/master/GreedyServerPlacement.py)
 
@@ -143,7 +143,7 @@ protocols as conceived.
 
 <p align="right">(<a href="#readme-top">Back to Top</a>)</p>
 
-<a name="lamportsLogicalClocks"/>
+<a name="lamportsLogicalClocks"></a>
 
 ## [Lamport's Logical Clocks](https://github.com/ukalto/VSVO-Algorithms/blob/master/LamportsLogicalClocks.py)
 
@@ -176,7 +176,7 @@ and conceptually provide a starting point for the more advanced vector clock met
 
 <p align="right">(<a href="#readme-top">Back to Top</a>)</p>
 
-<a name="readWriteQuorums"/>
+<a name="readWriteQuorums"></a>
 
 ## [Read Write Quorums](https://github.com/ukalto/VSVO-Algorithms/blob/master/ReadWriteQuorums.py)
 
@@ -212,7 +212,7 @@ There are 2 main rules included in the system:
 <p align="right">(<a href="#readme-top">Back to Top</a>)</p>
 
 
-<a id="vectorClock"/>
+<a id="vectorClock"></a>
 
 ## [Vector Clock](https://github.com/ukalto/VSVO-Algorithms/blob/master/VectorClock.py)
 
