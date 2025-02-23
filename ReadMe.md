@@ -137,7 +137,7 @@ protocols as conceived.
     <li>Fill out the number of location (4 in the example)</li>
     <li>Fill out the number of clients (3 in the example)</li>
     <li>Define how many servers need to be placed</li>
-    <li>Copy the table into the program. Do not worry if a number too large for a cell, it will just look weird but it will not get truncated or anything.</li>
+    <li>Copy the table into the program. Do not worry if a number too large for a cell, it will just look weird but still work.</li>
 </ol>
 
 ### Example:
