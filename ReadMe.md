@@ -133,8 +133,11 @@ protocols as conceived.
 ### How to use?
 
 <ol>
-    <li>Fill in each column in the options array (would look like this related to given example: [[1, 10, 10], [10, 5, 3], [10, 6, 5]])</li>
     <li>Start the GreedyServerPlacement.py program</li>
+    <li>Fill out the number of location (4 in the example)</li>
+    <li>Fill out the number of clients (3 in the example)</li>
+    <li>Define how many servers need to be placed</li>
+    <li>Copy the table into the program. Do not worry if a number too large for a cell, it will just look weird but still work.</li>
 </ol>
 
 ### Example:
