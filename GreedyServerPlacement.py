@@ -1,6 +1,23 @@
-# Each Array is one L column
-# Example: options = [[1, 10, 10], [10, 5, 3], [10, 6, 5]]
-options = [[]] # Fill in
+from tabulate import tabulate
+
+options = []
+num_clients = int(input("Enter the number of clients: "))
+num_latencies = int(input("Enter the number of latencies per client: "))
+
+for i in range(num_clients):
+    latencies = []
+    for j in range(num_latencies):
+        latency = int(input(f"Enter latency for client {i + 1}, latency {j + 1}: "))
+        latencies.append(latency)
+    options.append(latencies)
+
+# Create headers
+headers = [""] + [f"L{j + 1}" for j in range(num_latencies)]
+table = [[f"C{i + 1}"] + options[i] for i in range(num_clients)]
+
+# Print the table
+print(tabulate(table, headers, tablefmt="grid"))
+
 first_server = list(min({i + 1: sum(x) for i, x in enumerate(options)}.items(), key=lambda x: x[1]))
 minimum = {}
 for i, option in enumerate(options):

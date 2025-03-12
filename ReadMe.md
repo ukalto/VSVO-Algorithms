@@ -133,8 +133,9 @@ protocols as conceived.
 ### How to use?
 
 <ol>
-    <li>Fill in each column in the options array (would look like this related to given example: [[1, 10, 10], [10, 5, 3], [10, 6, 5]])</li>
+    <li>(in terminal) pip install requirements.txt</li>
     <li>Start the GreedyServerPlacement.py program</li>
+    <li>Type in each value for the right client and latency</li>
 </ol>
 
 ### Example:
