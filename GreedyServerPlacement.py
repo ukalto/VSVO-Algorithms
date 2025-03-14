@@ -1,15 +1,8 @@
-import platform
-
-if platform.system() == 'Windows':
-    try:
-        import colorama
-    except ImportError:
-        import ctypes
-        kernel32 = ctypes.windll.kernel32
-        # Enable ANSI support on Windows 10 v1511
-        kernel32.SetConsoleMode(kernel32.GetStdHandle(-11), 7)
-    else:
-        colorama.init()
+def print_hline(l_col_width, col_widths, location_num):
+    out = "\n" + "-" * (l_col_width)
+    for i in range(0, location_num):
+        out += "+" + "-" * col_widths[i]
+    print(out)
 
 location_num = int(input("Number of Locations: "))
 client_num = int(input("Number of clients: "))
@@ -17,34 +10,42 @@ placement_num = int(input("How many servers to place: "))
 
 options = [[0] * client_num for i in range(location_num)]
 CLIENT_PREFIX = "Client"
-L_COL_LEN = (len(CLIENT_PREFIX)+3)  # Length of the left most column
-COL_LEN = 6  # Length of all other columns
+LOCATION_PREFIX = "L"
+L_COL_LEN = len(CLIENT_PREFIX) + 1 + len(str(client_num)) + 1  # Length of the left most column
 
-print("\nNow fill out the table:")
+# Separator
+print()
 
-def print_hline():
-    out = "\n" + "-" * (L_COL_LEN)
-    for i in range(0, location_num):
-        out += "+" + "-" * COL_LEN
-    print(out)
+for i in range(1, client_num+1):
+    for j in range(1, location_num+1):
+        options[j-1][i-1] = int(input(f"Client {i} latency {j}: "))
 
-def undo_newline(line_len):
-    print(f"\033[{line_len}C\033[1A", end="")
+# Separator
+print()
 
-# Print header for interactive table
+col_widths = [0] * location_num
+for i in range(0, location_num):
+    col_widths[i] = max(len(str(max(options[i]))), len(LOCATION_PREFIX + str(location_num))) + 2
+    # Make the column size even to have it nicely centered
+    if col_widths[i] % 2 == 1:
+        col_widths[i] += 1
+
+# Print header for table
 print(" " * L_COL_LEN, end="")  # Reserve enough space for the leftmost column
-for i in range(1, location_num+1):
-    print("|" + f"L{i}".center(COL_LEN, " "), end="")
+for i in range(0, location_num):
+    print("|" + f"L{i+1}".center(col_widths[i], " "), end="")
 
-print_hline()
+print_hline(L_COL_LEN, col_widths, location_num)
 
+# Print table
 for i in range(1, client_num+1):
     print(f"{CLIENT_PREFIX} {i}".ljust(L_COL_LEN), end="")
     for j in range(1, location_num+1):
-        options[j-1][i-1] = int(input("|"))
-        undo_newline(L_COL_LEN + (1+COL_LEN)*j)
-    #print_hline()
+        print("| " + str(options[j-1][i-1]).ljust(col_widths[j-1]-1), end="")
     print()
+
+# Separator
+print()
 
 # Select the server with the lowest latency for all clients
 selected_servers = [False] * len(options)
